@@ -21,5 +21,6 @@ import { style } from '@angular/core/src/animation/dsl';
 export class CurseLinkComponent {
   @Input() visible: boolean;
   @Input() label: string;
+  @Input() linkHref: string;
   constructor(private animationBuilder: AnimationBuilder) {};
 }
