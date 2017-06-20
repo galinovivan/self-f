@@ -1,0 +1,21 @@
+.birds {
+  padding: 0 10%;
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+  .bird {
+    float: left;
+    margin-top: 20px;
+    &:first-child {
+      margin-top: 80px;
+    }
+    &:nth-child(2) {
+      margin-top: 20px;
+    }
+    &:last-child {
+      margin-top: 80px;
+    }
+  }
+}

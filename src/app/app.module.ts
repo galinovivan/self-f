@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { Routes, RouterModule} from '@angular/router';
 
@@ -11,6 +12,7 @@ import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { BirdComponent } from './components/bird/bird.component';
+import { BirdsComponent } from './components/birds/birds.component';
 import { FishComponent } from './components/fish/fish.component';
 import { SkilsComponent } from './components/skils/skils.component';
 import { ProjectSingleComponent } from './components/project-single/project-single.component';
@@ -39,6 +41,7 @@ const appRoutes: Routes = [
     HeaderComponent,
     HomeComponent,
     BirdComponent,
+    BirdsComponent,
     FishComponent,
     SidebarComponent,
     SkilsComponent,
@@ -51,7 +54,8 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
