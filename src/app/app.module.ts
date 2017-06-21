@@ -27,12 +27,12 @@ const appRoutes: Routes = [
     component: HomeComponent
   },
   {
-    path: '**',
-    component: NotFoundComponent
-  },
-  {
     path: 'project/:id',
     component: ProjectSingleComponent
+  },
+  {
+    path: '**',
+    component: NotFoundComponent
   }
 ];
 
