@@ -18,6 +18,8 @@ import { SkilsComponent } from './components/skils/skils.component';
 import { ProjectSingleComponent } from './components/project-single/project-single.component';
 import { CloudComponent } from './components/cloud/cloud.component';
 import { CurseLinkComponent } from './components/curse-link/curse-link.component';
+import { IcebergComponent } from './components/iceberg/iceberg.component';
+import { SeaComponent } from './components/sea/sea.component';
 
 const appRoutes: Routes = [
   {
@@ -47,7 +49,9 @@ const appRoutes: Routes = [
     SkilsComponent,
     ProjectSingleComponent,
     CloudComponent,
-    CurseLinkComponent
+    CurseLinkComponent,
+    IcebergComponent,
+    SeaComponent
 
   ],
   imports: [

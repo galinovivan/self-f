@@ -1,7 +1,15 @@
 header {
-  height: 400px;
+  height: 100vh;
   background: url('/assets/images/header_cover.png');
   div {
     text-align: center;
+  }
+  h1 {
+    text-transform: uppercase;
+  }
+  .iceberg {
+    margin-top: 0;
+    z-index: 1;
+    position: relative;
   }
 }

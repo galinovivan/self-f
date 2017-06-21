@@ -1,18 +1,12 @@
 /**
  * Created by ivan on 20.06.17.
  */
-import {Injectable} from '@angular/core';
-import { AnimationBuilder } from '@angular/animations';
-
-
+import { Injectable } from '@angular/core';
 
 
 
 @Injectable()
 
-
-
-
 export class AnimationService {
-  constructor(private animationBuilder: AnimationBuilder) {};
+
 }

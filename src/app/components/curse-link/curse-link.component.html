@@ -1,1 +1,1 @@
-<a routerLink="{{ linkHref }}">{{ label }}</a>
+<a routerLink="{{ linkHref }}" [@flyInOut]="linkState" (click)="onLinkClick(event)">{{ label }}</a>
