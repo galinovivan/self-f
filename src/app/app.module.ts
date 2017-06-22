@@ -21,6 +21,8 @@ import { CurseLinkComponent } from './components/curse-link/curse-link.component
 import { IcebergComponent } from './components/iceberg/iceberg.component';
 import { SeaComponent } from './components/sea/sea.component';
 
+import { HaoticMovindDirective } from './directives/haotic-moving.directive';
+
 const appRoutes: Routes = [
   {
     path: '',
@@ -51,7 +53,8 @@ const appRoutes: Routes = [
     CloudComponent,
     CurseLinkComponent,
     IcebergComponent,
-    SeaComponent
+    SeaComponent,
+    HaoticMovindDirective
 
   ],
   imports: [

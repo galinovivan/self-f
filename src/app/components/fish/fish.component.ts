@@ -15,7 +15,6 @@ import { Input, Component } from '@angular/core';
 
 
 export class FishComponent {
-  @Input() src: string;
-  @Input() width: string;
-  @Input() className: string;
+  @Input() direction;
+  @Input() fishColor : string;
 }
