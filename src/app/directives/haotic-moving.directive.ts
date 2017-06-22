@@ -21,7 +21,6 @@ export class HaoticMovindDirective {
         }
         this.setTranslateX(this.setTranslateX(this.startPosition));
         this.logger.message('start' + this.startPosition);
-       // const clientWidth = document.documentElement.clientWidth;
         setInterval(() => {
             this.moving();
         }, this.speed)
