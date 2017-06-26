@@ -1,11 +1,9 @@
-import { Directive, ElementRef, Renderer2, Input } from '@angular/core';
+import { Directive, ElementRef, Renderer2, Input, HostListener } from '@angular/core';
 import { LEFT, RIGHT } from '../consts/directions';
-import { LoggerService } from '../services/logger/logger.service';
 
 
 @Directive({
-    selector: '[haotic-moving]',
-    providers: [LoggerService]
+    selector: '[haotic-moving]'
 })
 
 
@@ -15,35 +13,43 @@ export class HaoticMovindDirective {
     private startPosition = this.getRandomPosition();
     private activeDirection;
     private speed = 100;
-    constructor(private elementRef : ElementRef, private renderer : Renderer2, private logger : LoggerService) {
+    constructor(private elementRef : ElementRef, private renderer : Renderer2) {
         if (this.activeDirection === undefined) {
             this.activeDirection = this.direction;
         }
-        this.setTranslateX(this.setTranslateX(this.startPosition));
-        this.logger.message('start' + this.startPosition);
+        this.setTranslateX(this.startPosition);
         setInterval(() => {
             this.moving();
         }, this.speed)
+    };
+    @HostListener('mouseenter') onMouseEnter() {
+        this.changeDirection();
     }
     private moving() : void {
-        let translateX = this.parseInteger(this.elementRef.nativeElement.style.transform);
-        this.logger.message(translateX);
+        let translateX : number = this.parseInteger(this.elementRef.nativeElement.style.transform);
         let direction = this.activeDirection;
         if (translateX >= 105) {
-                this.activeDirection = LEFT;
+            this.rotateBackground();
+               this.changeDirection();
            } else if (translateX == 0) {
-               this.activeDirection = RIGHT;
+               this.rotateBackground();
+              this.changeDirection();
            } 
         switch (this.activeDirection) {
             case RIGHT:
                 this.setTranslateX(translateX + 1);
-                this.logger.message('index' + translateX + 0.2)
                 break;
             case LEFT:
                 this.setTranslateX(translateX - 1);
                 break;
         }
-        this.logger.message(this.activeDirection);
+    }
+    private changeDirection() : void {
+        if (this.activeDirection === RIGHT) {
+            this.activeDirection = LEFT;
+        } else {
+            this.activeDirection = RIGHT;
+        }
     }
     private parseInteger(str) : number {
        return +str.match(/[0-9]+/g)[0];
@@ -51,6 +57,9 @@ export class HaoticMovindDirective {
     private setTranslateX(val) : void {
         this.renderer.setStyle(this.elementRef.nativeElement, 'transform', `translateX(${val}vw`);
     }
+    private rotateBackground() : void {
+        this.renderer.setStyle(this.elementRef.nativeElement, 'transform', 'rotate(180deg)');
+    };
     private setStyleAttribute(prop, val) : void {
         this.renderer.setStyle(this.elementRef.nativeElement, prop, val);
     }
