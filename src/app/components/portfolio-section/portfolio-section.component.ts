@@ -13,5 +13,5 @@ import { Input, Component } from '@angular/core';
 
 
 export class PortfolioSectionComponent {
-  @Input() sectionStyle: string;
+  @Input() sectionColor: string;
 }

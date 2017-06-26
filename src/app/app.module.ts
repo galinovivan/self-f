@@ -20,6 +20,8 @@ import { CloudComponent } from './components/cloud/cloud.component';
 import { CurseLinkComponent } from './components/curse-link/curse-link.component';
 import { IcebergComponent } from './components/iceberg/iceberg.component';
 import { SeaComponent } from './components/sea/sea.component';
+import { PortfolioSectionComponent } from './components/portfolio-section/portfolio-section.component';
+import { NavComponent } from './components/nav/nav.component';
 
 import { HaoticMovindDirective } from './directives/haotic-moving.directive';
 
@@ -54,9 +56,10 @@ const appRoutes: Routes = [
     CurseLinkComponent,
     IcebergComponent,
     SeaComponent,
-    HaoticMovindDirective
-
-  ],
+    HaoticMovindDirective,
+    PortfolioSectionComponent,
+    NavComponent
+],
   imports: [
     BrowserModule,
     FormsModule,
