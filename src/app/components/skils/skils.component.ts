@@ -1,7 +1,8 @@
 /**
  * Created by ivan on 19.06.17.
  */
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Skil } from '../../models/skil';
 
 
 
@@ -15,4 +16,5 @@ import { Component } from '@angular/core';
 
 
 export class SkilsComponent {
+  @Input() skilsList : Skil[];
 }

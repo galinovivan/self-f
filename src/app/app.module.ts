@@ -24,11 +24,17 @@ import { PortfolioSectionComponent } from './components/portfolio-section/portfo
 import { NavComponent } from './components/nav/nav.component';
 
 import { HaoticMovindDirective } from './directives/haotic-moving.directive';
+import { ContentBlockComponent } from './components/content-block/content-block.component';
+import { FrontendPorfolioComponent } from './components/frontend-porfolio/frontend-porfolio.component';
 
 const appRoutes: Routes = [
   {
     path: '',
     component: HomeComponent
+  },
+  {
+    path: 'frontend-portfolio',
+    component: FrontendPorfolioComponent
   },
   {
     path: 'project/:id',
@@ -58,7 +64,9 @@ const appRoutes: Routes = [
     SeaComponent,
     HaoticMovindDirective,
     PortfolioSectionComponent,
-    NavComponent
+    NavComponent,
+    ContentBlockComponent,
+    FrontendPorfolioComponent
 ],
   imports: [
     BrowserModule,

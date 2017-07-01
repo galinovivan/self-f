@@ -1,0 +1,19 @@
+@import "../../sass/variable";
+.nav {
+    list-style: none;
+    li {
+        display: block;
+        &:not(:first-of-type) {
+            a {
+                border-top: 1px solid $grayBorderColor;
+            }
+        }
+        a {
+            display: inline-block;
+            padding: 20px 0;
+            text-transform: uppercase;
+            width: 200px;
+            text-align: center;
+        }
+    }
+}

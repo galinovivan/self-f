@@ -29,10 +29,8 @@ export class HaoticMovindDirective {
         let translateX : number = this.parseInteger(this.elementRef.nativeElement.style.transform);
         let direction = this.activeDirection;
         if (translateX >= 105) {
-            this.rotateBackground();
                this.changeDirection();
            } else if (translateX == 0) {
-               this.rotateBackground();
               this.changeDirection();
            } 
         switch (this.activeDirection) {
@@ -47,8 +45,10 @@ export class HaoticMovindDirective {
     private changeDirection() : void {
         if (this.activeDirection === RIGHT) {
             this.activeDirection = LEFT;
+            this.rotateBackground();
         } else {
             this.activeDirection = RIGHT;
+            this.rotateBackground();
         }
     }
     private parseInteger(str) : number {
@@ -58,7 +58,7 @@ export class HaoticMovindDirective {
         this.renderer.setStyle(this.elementRef.nativeElement, 'transform', `translateX(${val}vw`);
     }
     private rotateBackground() : void {
-        this.renderer.setStyle(this.elementRef.nativeElement, 'transform', 'rotate(180deg)');
+        
     };
     private setStyleAttribute(prop, val) : void {
         this.renderer.setStyle(this.elementRef.nativeElement, prop, val);
