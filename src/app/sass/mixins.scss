@@ -1,0 +1,14 @@
+@mixin linkHover() {
+    @include transition();
+    &:hover {
+        color: $hoverColor;
+        text-decoration: none;
+    }
+}
+
+@mixin transition($prop: all 0.3s) {
+    transition: $prop;
+    -webkit-transition: $prop;
+    -moz-transition: $prop;
+    -ms-transition: $prop;
+}

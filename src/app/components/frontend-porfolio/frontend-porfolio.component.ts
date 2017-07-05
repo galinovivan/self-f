@@ -18,6 +18,9 @@ export class FrontendPorfolioComponent implements OnInit {
   },
   {
     title: 'js'  
+  },
+  {
+    title: 'angular 4'
   }];
   constructor() { }
 
