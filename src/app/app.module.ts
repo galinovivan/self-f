@@ -25,7 +25,9 @@ import { NavComponent } from './components/nav/nav.component';
 
 import { HaoticMovindDirective } from './directives/haotic-moving.directive';
 import { ContentBlockComponent } from './components/content-block/content-block.component';
-import { FrontendPorfolioComponent } from './components/frontend-porfolio/frontend-porfolio.component';
+import { ContentLayoutComponent } from './components/layout/content-layout/content-layout.component';
+import { FrontendSkilsComponent } from './components/frontend-skils/frontend-skils.component';
+
 
 const appRoutes: Routes = [
   {
@@ -33,8 +35,8 @@ const appRoutes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'frontend-portfolio',
-    component: FrontendPorfolioComponent
+    path: 'frontend-skils',
+    component: FrontendSkilsComponent
   },
   {
     path: 'project/:id',
@@ -66,7 +68,8 @@ const appRoutes: Routes = [
     PortfolioSectionComponent,
     NavComponent,
     ContentBlockComponent,
-    FrontendPorfolioComponent
+    ContentLayoutComponent,
+    FrontendSkilsComponent,
 ],
   imports: [
     BrowserModule,

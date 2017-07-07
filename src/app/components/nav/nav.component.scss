@@ -18,6 +18,9 @@
             text-align: center;
             color: $blackText;
             @include linkHover();
+            &.active {
+                font-weight: bold;
+            }
         }
     }
 }

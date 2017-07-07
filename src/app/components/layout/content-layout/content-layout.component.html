@@ -1,0 +1,14 @@
+<div class="content_block" [ngClass]="blockColor">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-2">
+  <div class="sidebar">
+  <app-sidebar [title]="sidebarTitle"></app-sidebar>
+  </div>
+      </div>
+      <div class="col-md-10">
+   <ng-content></ng-content>
+      </div>
+      </div>
+  </div>
+</div>

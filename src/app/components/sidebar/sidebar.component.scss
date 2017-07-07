@@ -1,5 +1,6 @@
 @import '../../sass/variable';
 .sidebar {
+    $pseudoElHeight: 100px;
     position: fixed;
     min-height: 100vh;
     top: 0;
@@ -8,9 +9,31 @@
     padding-left: 2.5%;
     padding-right: 2.5%;
     border-right: 1px solid $grayBorderColor;
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: $pseudoElHeight;
+        background: $whiteBackground;
+        z-index: 1;
+    }
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: $pseudoElHeight;
+        background: $whiteBackground;
+        z-index: 1;
+    }
     .block_heading {
-        text-align: 
-        center;
+        text-align: center;
+        margin-bottom: 100px;
+        z-index: 10;
+        position: relative;
         h4 {
             font-size: $middleHeadingSize;
             margin-top: 0;

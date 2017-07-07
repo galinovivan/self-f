@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FrontendPorfolioComponent } from './frontend-porfolio.component';
+import { FrontendSkilsComponent } from './frontend-skils.component';
 
-describe('FrontendPorfolioComponent', () => {
-  let component: FrontendPorfolioComponent;
-  let fixture: ComponentFixture<FrontendPorfolioComponent>;
+describe('FrontendSkilsComponent', () => {
+  let component: FrontendSkilsComponent;
+  let fixture: ComponentFixture<FrontendSkilsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FrontendPorfolioComponent ]
+      declarations: [ FrontendSkilsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FrontendPorfolioComponent);
+    fixture = TestBed.createComponent(FrontendSkilsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

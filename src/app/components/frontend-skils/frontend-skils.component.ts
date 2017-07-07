@@ -3,11 +3,11 @@ import { WHITE } from '../../consts/colors';
 import { Skil } from '../../models/skil';
 
 @Component({
-  selector: 'app-frontend-porfolio',
-  templateUrl: './frontend-porfolio.component.html',
-  styleUrls: ['./frontend-porfolio.component.scss']
+  selector: 'app-frontend-skils',
+  templateUrl: './frontend-skils.component.html',
+  styleUrls: ['./frontend-skils.component.scss']
 })
-export class FrontendPorfolioComponent implements OnInit {
+export class FrontendSkilsComponent implements OnInit {
   blockColor = WHITE;
   sidebarTitle = 'frontend developer';
   skilsList : Skil[] = [{
