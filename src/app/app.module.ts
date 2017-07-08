@@ -20,13 +20,13 @@ import { CloudComponent } from './components/cloud/cloud.component';
 import { CurseLinkComponent } from './components/curse-link/curse-link.component';
 import { IcebergComponent } from './components/iceberg/iceberg.component';
 import { SeaComponent } from './components/sea/sea.component';
-import { PortfolioSectionComponent } from './components/portfolio-section/portfolio-section.component';
 import { NavComponent } from './components/nav/nav.component';
 
 import { HaoticMovindDirective } from './directives/haotic-moving.directive';
-import { ContentBlockComponent } from './components/content-block/content-block.component';
 import { ContentLayoutComponent } from './components/layout/content-layout/content-layout.component';
 import { FrontendSkilsComponent } from './components/frontend-skils/frontend-skils.component';
+import { FrontendPortfolioComponent } from './components/portfolio/frontend-portfolio/frontend-portfolio.component';
+import { PortfolioComponent } from './components/portfolio/base/portfolio/portfolio.component';
 
 
 const appRoutes: Routes = [
@@ -37,6 +37,10 @@ const appRoutes: Routes = [
   {
     path: 'frontend-skils',
     component: FrontendSkilsComponent
+  },
+  {
+    path: 'frontend-portfolio',
+    component: FrontendPortfolioComponent
   },
   {
     path: 'project/:id',
@@ -65,11 +69,11 @@ const appRoutes: Routes = [
     IcebergComponent,
     SeaComponent,
     HaoticMovindDirective,
-    PortfolioSectionComponent,
     NavComponent,
-    ContentBlockComponent,
     ContentLayoutComponent,
     FrontendSkilsComponent,
+    FrontendPortfolioComponent,
+    PortfolioComponent,
 ],
   imports: [
     BrowserModule,

@@ -1,5 +1,7 @@
 @import '../../../sass/variable';
 .content_block {
+    min-width: 100vw;
+    min-height: 100vh;
     &.white {
         background: $whiteBackground;
     }

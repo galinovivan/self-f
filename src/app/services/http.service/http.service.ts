@@ -16,11 +16,40 @@ import { Project } from '../../models/project';
 
 export class HttpService {
   constructor(private http: Http) {};
-  public getProject(): Project[] {
-    return [
-      {
-        name: 'ds'
-      }
-      ];
+  public getProject() : Project[] {
+   return [
+     {
+      id: 1,
+      name: "mmm",
+      source: "sds",
+      image: "sds",
+      description: "s",
+      category: 'frontend'
+    }
+   ]
+  }
+  public getProjectByCategory(category : string) : Project[] {
+      if (category = 'frontend') {
+        return [
+     {
+      id: 1,
+      name: "mmm",
+      source: "sds",
+      image: "sds",
+      description: "s",
+      category: 'frontend'
+       }
+    ]
+  }
+  return [
+     {
+      id: 1,
+      name: "mmm",
+      source: "sds",
+      image: "sds",
+      description: "s",
+      category: 'backend'
+    }
+   ]
   }
 }
