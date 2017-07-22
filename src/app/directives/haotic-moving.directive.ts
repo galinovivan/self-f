@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Renderer2, Input, HostListener } from '@angular/core';
+import { Directive, ElementRef, Renderer2, Input, HostListener, AfterViewChecked } from '@angular/core';
 import { LEFT, RIGHT } from '../consts/directions';
 
 
@@ -8,59 +8,74 @@ import { LEFT, RIGHT } from '../consts/directions';
 
 
 
-export class HaoticMovindDirective {
+export class HaoticMovindDirective implements AfterViewChecked {
     @Input() direction = RIGHT;
     private startPosition = this.getRandomPosition();
     private activeDirection;
-    private speed = 100;
+    private speed = 150;
     constructor(private elementRef : ElementRef, private renderer : Renderer2) {
+        this.setStyleAttribute('transform-origin', 'center');
         if (this.activeDirection === undefined) {
             this.activeDirection = this.direction;
         }
-        this.setTranslateX(this.startPosition);
+        this.setMarginLeft(this.startPosition);
         setInterval(() => {
             this.moving();
         }, this.speed)
+    };
+    ngAfterViewChecked() {
+        this.rotate();
     };
     @HostListener('mouseenter') onMouseEnter() {
         this.changeDirection();
     }
     private moving() : void {
-        let translateX : number = this.parseInteger(this.elementRef.nativeElement.style.transform);
+        let marginLeft : number = this.parseInteger(this.elementRef.nativeElement.style.marginLeft);
         let direction = this.activeDirection;
-        if (translateX >= 105) {
+        if (marginLeft >= 105) {
                this.changeDirection();
-           } else if (translateX == 0) {
+           } else if (marginLeft == 0) {
               this.changeDirection();
            } 
         switch (this.activeDirection) {
             case RIGHT:
-                this.setTranslateX(translateX + 1);
+                this.setMarginLeft(marginLeft + 1);
                 break;
             case LEFT:
-                this.setTranslateX(translateX - 1);
+                this.setMarginLeft(marginLeft - 1);
                 break;
         }
     }
     private changeDirection() : void {
         if (this.activeDirection === RIGHT) {
-            this.activeDirection = LEFT;
-            this.rotateBackground();
+            this.rotate();
+            this.activeDirection = LEFT;   
         } else {
+            this.rotate();
             this.activeDirection = RIGHT;
-            this.rotateBackground();
-        }
+           }
     }
     private parseInteger(str) : number {
        return +str.match(/[0-9]+/g)[0];
     }
-    private setTranslateX(val) : void {
-        this.renderer.setStyle(this.elementRef.nativeElement, 'transform', `translateX(${val}vw`);
+    private setMarginLeft(val : number) : void {
+        this.setStyleAttribute('margin-left', `${val}vw`);
     }
-    private rotateBackground() : void {
-        
-    };
-    private setStyleAttribute(prop, val) : void {
+    private rotate() : void {
+        let direction = this.activeDirection;
+        if (direction === LEFT) {
+            this.setRotate(0);
+        } else {
+            this.setRotate(180);
+        }
+    }
+    private setRotate(val : number) : void {
+        this.setStyleAttribute('transform', `rotateY(${val}deg)`);
+    }
+    private getRotate() : number {
+        return this.parseInteger(this.elementRef.nativeElement.style.transform);
+    }
+    private setStyleAttribute(prop : string, val : string) : void {
         this.renderer.setStyle(this.elementRef.nativeElement, prop, val);
     }
     private getRandomPosition() : number {
