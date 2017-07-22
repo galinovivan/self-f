@@ -12,7 +12,7 @@ export class HaoticMovindDirective implements AfterViewChecked {
     @Input() direction = RIGHT;
     private startPosition = this.getRandomPosition();
     private activeDirection;
-    private speed = 150;
+    private speed : number = 150;
     constructor(private elementRef : ElementRef, private renderer : Renderer2) {
         this.setStyleAttribute('transform-origin', 'center');
         if (this.activeDirection === undefined) {

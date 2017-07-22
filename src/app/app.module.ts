@@ -27,7 +27,8 @@ import { ContentLayoutComponent } from './components/layout/content-layout/conte
 import { FrontendSkilsComponent } from './components/frontend-skils/frontend-skils.component';
 import { FrontendPortfolioComponent } from './components/portfolio/frontend-portfolio/frontend-portfolio.component';
 import { PortfolioComponent } from './components/portfolio/base/portfolio/portfolio.component';
-import { ContactsComponentComponent } from './components/contact/contacts-component/contacts-component.component';
+import { ContactComponent } from './components/contacts/contact.component';
+import { SocialLinksComponent } from './components/social-links/social-links.component';
 
 
 const appRoutes: Routes = [
@@ -46,6 +47,10 @@ const appRoutes: Routes = [
   {
     path: 'project/:id',
     component: ProjectSingleComponent
+  },
+  {
+    path: 'contact',
+    component: ContactComponent
   },
   {
     path: '**',
@@ -75,7 +80,8 @@ const appRoutes: Routes = [
     FrontendSkilsComponent,
     FrontendPortfolioComponent,
     PortfolioComponent,
-    ContactsComponentComponent,
+    ContactComponent,
+    SocialLinksComponent
 ],
   imports: [
     BrowserModule,

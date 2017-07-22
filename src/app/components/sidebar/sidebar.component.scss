@@ -1,4 +1,6 @@
 @import '../../sass/variable';
+@import '../../sass/mixins';
+
 .sidebar {
     $pseudoElHeight: 100px;
     position: fixed;
@@ -9,6 +11,11 @@
     padding-left: 2.5%;
     padding-right: 2.5%;
     border-right: 1px solid $grayBorderColor;
+    a {
+        color: $blackText;
+        text-decoration: none !important;
+        @include linkHover();
+    }
     &::before {
         content: '';
         display: block;

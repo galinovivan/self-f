@@ -1,0 +1,6 @@
+@import '../../sass/variable';
+@import '../../sass/mixins';
+a {
+    color: $blackText;
+    @include linkHover();
+}
