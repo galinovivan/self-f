@@ -24,7 +24,17 @@ export class HttpService {
       source: "sds",
       image: "sds",
       description: "s",
-      category: 'frontend'
+      category: 'frontend',
+      imageSrc: 'http://localhost/port.png'
+    },
+    {
+      id: 2,
+      name: "mmms",
+      source: "sdss",
+      image: "sdss",
+      description: "ss",
+      category: 'frontend',
+      imageSrc: 'http://localhost/port.png'
     }
    ]
   }
@@ -37,8 +47,18 @@ export class HttpService {
       source: "sds",
       image: "sds",
       description: "s",
-      category: 'frontend'
-       }
+      category: 'frontend',
+      imageSrc: 'http://localhost/port.png'
+    },
+    {
+      id: 2,
+      name: "mmms",
+      source: "sdss",
+      image: "sdss",
+      description: "ss",
+      category: 'frontend',
+      imageSrc: 'http://localhost/port.png'
+    }
     ]
   }
   return [
@@ -48,7 +68,8 @@ export class HttpService {
       source: "sds",
       image: "sds",
       description: "s",
-      category: 'backend'
+      category: 'backend',
+      imageSrc: 'http://localhost/port.png'
     }
    ]
   }

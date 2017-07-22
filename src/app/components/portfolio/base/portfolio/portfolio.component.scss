@@ -1,4 +1,59 @@
 @import '../../../../sass/variable';
+@import'../../../../sass/mixins';
 .portfolio {
+    padding-top: 50px;
     background: $transparent;
+    .wrapper {
+        &:nth-child(odd) {
+            padding-left: 5%;
+        }
+        &:nth-child(even) {
+            padding-right: 5%;
+        }
+    }
+    .title {
+        font-size: $middleHeadingSize;
+    }
+    .project_thumb {
+        position: relative;
+        overflow: hidden;
+        height: 244px;
+        img {
+            width: 100%;
+            height: auto;
+        }
+    .project_title {
+        display: block;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        text-align: center;
+        background: $overlayColor;
+        padding-top: 25%;
+        z-index: 100;
+        cursor: pointer;
+        text-decoration: none !important;
+        @include transition();
+        .label {
+            font-size: $siteLabelFontSize;
+            color: $white;
+            @include marginAlign();
+        }
+        .eye_icon {
+            width: 46px;
+            height: 30px;
+            background: url('/assets/images/eye.png') no-repeat;
+            background-size: contain;
+            @include marginAlign();
+        }
+        }
+        &:hover {
+            .project_title {
+                opacity: 1;
+            }
+        }
+    }
 }

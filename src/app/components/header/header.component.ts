@@ -16,7 +16,7 @@ import { Component } from '@angular/core';
 
 export class HeaderComponent {
   frontendLinkLabel : string = 'frontend';
-  frontendLinkHref : string = this.frontendLinkLabel;
+  frontendLinkHref : string = 'frontend-skils';
   backendLinkLabel : string = 'backend';
-  backendLinkHref : string = this.backendLinkLabel;
+  backendLinkHref : string = 'backend-skils';
 }

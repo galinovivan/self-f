@@ -18,4 +18,5 @@ import { Input, Component } from '@angular/core';
 
 export class ProjectSingleComponent {
   @Input() id: number;
+  constructor() {};
 }

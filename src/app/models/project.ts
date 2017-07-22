@@ -8,4 +8,5 @@ export class Project {
   image : string;
   description : string;
   category: string;
+  imageSrc: string;
 }
