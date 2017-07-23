@@ -1,3 +1,6 @@
+@import "../../sass/variable";
+@import "../../sass/mixins";
+
 .sprite_social {
     background-image: url('/assets/images/social_sprite.png');
     background-repeat: no-repeat;
@@ -17,7 +20,16 @@
 }
 .social_links {
     list-style: none;
+    padding: 0;
     li {
         display: inline-block;
+        margin-right: 7px;
+        a {
+            display: block;
+            @include transition();
+            &:hover {
+               transform: rotate(360deg);
+            }
+        }
     }
 }

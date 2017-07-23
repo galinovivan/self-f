@@ -19,4 +19,5 @@ export class HeaderComponent {
   frontendLinkHref : string = 'frontend-skils';
   backendLinkLabel : string = 'backend';
   backendLinkHref : string = 'backend-skils';
+  bottomLinkAlign : string = 'right';
 }

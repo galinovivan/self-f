@@ -1,7 +1,13 @@
+@import '../../sass/variable';
+
 header {
   height: 100vh;
   background: url('/assets/images/header_cover.png');
   position: relative;
+  overflow: hidden;
+  .page_title {
+    color: $blackText;
+  }
   div {
     text-align: center;
   }
@@ -17,12 +23,18 @@ header {
     z-index: 100;
       position: absolute;
       &.top {
-        left: 28%;
+        left: 25%;
         top: 23vh;
       }
       &.bottom {
-        right: 28%;
+        right: 20%;
         bottom: 20vh;
+        padding-left: 30px;
+        z-index: 1000;
+        .line {
+          margin-top: -63px;
+          z-index: 1;
+        }
       }
     }
 }

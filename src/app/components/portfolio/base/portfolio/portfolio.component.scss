@@ -13,7 +13,10 @@
         }
     }
     .title {
-        font-size: $middleHeadingSize;
+        h2 {
+            font-size: $largeHeadingSize;
+            color: $blackText;
+        }
     }
     .project_thumb {
         position: relative;

@@ -1,0 +1,15 @@
+@import '../../sass/variable';
+@import '../../sass/mixins';
+
+a {
+    display: block;
+    font-size: $linkLabelFontSize;
+    color: $blackText;
+    @include linkHover();
+    &.left {
+        text-align: left;
+    }
+    &.right {
+        text-align: right;
+    }
+}

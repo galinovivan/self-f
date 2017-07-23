@@ -12,6 +12,8 @@
     .title {
         h2 {
             font-size: $largeHeadingSize;
+            color: $blackText;
+            text-transform: uppercase;
         }
     }
 }

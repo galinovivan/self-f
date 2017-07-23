@@ -33,4 +33,5 @@ export class CurseLinkComponent {
   @Input() label: string;
   @Input() linkHref: string;
   @Input() linkState;
+  @Input() align : string = 'left';
 }
