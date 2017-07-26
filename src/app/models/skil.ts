@@ -1,3 +1,3 @@
-export class Skil {
+export interface Skil {
     title : string;
 }

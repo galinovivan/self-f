@@ -1,76 +1,29 @@
-/**
- * Created by ivan on 20.06.17.
- */
-import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-
-import { Project } from '../../models/project';
+import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs/observable';
 
 
 
+export abstract class HttpService {
+  protected http : Http;
+  constructor(http : Http) {
+    this.http = http;
+  };  
+   abstract getAll();
+   abstract getById(id : number);
+   getApiQuery(apiUrl : string) : Observable<any> {
+        return this.http.get(apiUrl)
+        .map((resp: Response) => {
+            let dataList = resp.json().data;
+            if (!dataList.isArray()) {
+                return dataList;
+            }
+            let dataObjects : Object[] = [];
 
-@Injectable()
-
-
-
-
-export class HttpService {
-  constructor(private http: Http) {};
-  public getProject() : Project[] {
-   return [
-     {
-      id: 1,
-      name: "mmm",
-      source: "sds",
-      image: "sds",
-      description: "s",
-      category: 'frontend',
-      imageSrc: 'http://localhost/port.png'
-    },
-    {
-      id: 2,
-      name: "mmms",
-      source: "sdss",
-      image: "sdss",
-      description: "ss",
-      category: 'frontend',
-      imageSrc: 'http://localhost/port.png'
-    }
-   ]
-  }
-  public getProjectByCategory(category : string) : Project[] {
-      if (category = 'frontend') {
-        return [
-     {
-      id: 1,
-      name: "mmm",
-      source: "sds",
-      image: "sds",
-      description: "s",
-      category: 'frontend',
-      imageSrc: 'http://localhost/port.png'
-    },
-    {
-      id: 2,
-      name: "mmms",
-      source: "sdss",
-      image: "sdss",
-      description: "ss",
-      category: 'frontend',
-      imageSrc: 'http://localhost/port.png'
-    }
-    ]
-  }
-  return [
-     {
-      id: 1,
-      name: "mmm",
-      source: "sds",
-      image: "sds",
-      description: "s",
-      category: 'backend',
-      imageSrc: 'http://localhost/port.png'
-    }
-   ]
-  }
+            for (let index in dataList) {
+                let dataObject : Object = dataObjects[index];
+                Object.assign(dataObject, ...dataObjects);
+            }
+            return dataObjects;
+        })
+   }
 }
