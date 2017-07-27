@@ -14,21 +14,48 @@ import { Observable } from 'rxjs/Observable';
 
 
 export class ProjectService extends HttpService implements CrudeInterface {
+  /**
+   * @param {Http} http
+   */
     constructor(protected http : Http) {
         super(http, projectEntityAlias);
     };
-    public getAll() : Observable<Project[]> {
+
+  /**
+   * @returns {Observable<Project[]>}
+   */
+  public getAll() : Observable<Project[]> {
       return this.getApiQuery();
     };
+
+  /**
+   * @param id
+   * @returns {Observable<Project>}
+   */
     public getById(id) : Observable<Project> {
       return this.getApiQuery(id);
     };
+
+  /**
+   * @param {Project} project
+   * @returns {boolean}
+   */
     public create(project : Project) : boolean {
       return true;
     };
-    public update() : boolean {
+
+  /**
+   *
+   * @returns {boolean}
+   */
+  public update() : boolean {
       return true;
     };
+
+  /**
+   * @param id
+   * @returns {boolean}
+   */
     public remove(id) : boolean {
       return true;
     };
