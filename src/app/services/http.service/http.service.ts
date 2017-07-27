@@ -16,6 +16,8 @@ export abstract class HttpService {
     return this.http.get(`${apiUrl}${this.entityAlias}${queryParam}`)
       .map((response : Response) => {
         return response.json().data;
+      }).catch((error : any) => {
+          console.log(error);
       })
   }
 }
