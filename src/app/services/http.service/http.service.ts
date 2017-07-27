@@ -1,31 +1,21 @@
 import { Http, Response } from '@angular/http';
-import { Observable } from 'rxjs/observable';
+import { Observable } from "rxjs/Observable";
+import "rxjs/add/operator/map";
+import { apiUrl } from '../../consts/api';
 
 
 
 export abstract class HttpService {
   protected http : Http;
-  constructor(http : Http) {
+  private entityAlias : string;
+  constructor(http : Http, entityAlias : string) {
     this.http = http;
-  };  
-   abstract getAll();
-   abstract getById(id : number);
-   getApiQuery(apiUrl : string) : Observable<any> {
-        return this.http.get(apiUrl)
-        .map((resp: Response) => {
-            let dataList = resp.json();
-            console.log(resp.json());
-            if (dataList instanceof Array) {
-               let dataObjects : Object[] = [];
-
-            for (let index in dataList) {
-                let dataObject : Object = dataList[index];
-                dataObjects.push(dataObject);
-                console.log(dataObjects);
-            }
-            return dataObjects;
-        }
-        return dataList;
-        })
-   }
+    this.entityAlias = entityAlias;
+  };
+  protected getApiQuery(queryParam = null) : Observable<any> {
+    return this.http.get(`${apiUrl}${this.entityAlias}${queryParam}`)
+      .map((response : Response) => {
+        return response.json().data;
+      })
+  }
 }

@@ -1,9 +1,10 @@
 import { HttpService } from './http.service';
+import { CrudeInterface } from "./crude.interface"
 import { Http, Response } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Project } from '../../models/project';
-import { apiUrl } from '../../consts/api';
-import { Observable } from 'rxjs/observable';
+import { projectEntityAlias } from '../../consts/api';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 
@@ -13,21 +14,23 @@ import 'rxjs/add/operator/map';
 
 
 
-export class ProjectService extends HttpService {
-    private entityAlias : string = '/projects/';
+export class ProjectService extends HttpService implements CrudeInterface {
     constructor(protected http : Http) {
-        super(http);
+        super(http, projectEntityAlias);
     };
     public getAll() : Observable<Project[]> {
-        return this.getApiQuery(`${apiUrl}${this.entityAlias}`);
+      return this.getApiQuery();
     }
-   public getById(id : number) : Observable<Project> {
-        return this.getApiQuery(`${apiUrl}${this.entityAlias}${id}`);
-   }
-
-   public getByCategory(cat: string) : Observable<Project[]> {
-        return this.getApiQuery(`${apiUrl}${this.entityAlias}${cat}`);
-   }
-
-    
+    public getById(id) : Observable<Project> {
+      return this.getApiQuery(id);
+    }
+    public create(project : Project) : boolean {
+      return true;
+    }
+    public update() : boolean {
+      return true;
+    }
+    public remove(id) : boolean {
+      return true;
+    }
 }
