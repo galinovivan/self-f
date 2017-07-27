@@ -19,17 +19,17 @@ export class ProjectService extends HttpService implements CrudeInterface {
     };
     public getAll() : Observable<Project[]> {
       return this.getApiQuery();
-    }
+    };
     public getById(id) : Observable<Project> {
       return this.getApiQuery(id);
-    }
+    };
     public create(project : Project) : boolean {
       return true;
-    }
+    };
     public update() : boolean {
       return true;
-    }
+    };
     public remove(id) : boolean {
       return true;
-    }
+    };
 }
