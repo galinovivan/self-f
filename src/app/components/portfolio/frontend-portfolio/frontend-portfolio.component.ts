@@ -24,5 +24,4 @@ public sidebarTitle = 'frontend developer';
       console.log(error);
     })
   }
-
 }
