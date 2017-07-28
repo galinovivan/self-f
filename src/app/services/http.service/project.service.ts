@@ -1,6 +1,5 @@
 import { HttpService } from './http.service';
 import { CrudeInterface } from "./crude.interface"
-import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Project } from '../../models/project';
 import { projectEntityAlias } from '../../consts/api';
@@ -13,19 +12,20 @@ import { Observable } from 'rxjs/Observable';
 
 
 
-export class ProjectService extends HttpService implements CrudeInterface {
+export class ProjectService implements CrudeInterface {
+
   /**
-   * @param {Http} http
+   * @param {HttpService} httpService
    */
-    constructor(protected http : Http) {
-        super(http, projectEntityAlias);
-    };
+    constructor(private httpService : HttpService) {
+      this.httpService.setApiUrl(projectEntityAlias);
+  };
 
   /**
    * @returns {Observable<Project[]>}
    */
   public getAll() : Observable<Project[]> {
-      return this.getApiQuery();
+      return this.httpService.getApiQuery();
     };
 
   /**
@@ -33,7 +33,7 @@ export class ProjectService extends HttpService implements CrudeInterface {
    * @returns {Observable<Project>}
    */
     public getById(id) : Observable<Project> {
-      return this.getApiQuery(id);
+      return this.httpService.getApiQuery(id);
     };
 
   /**

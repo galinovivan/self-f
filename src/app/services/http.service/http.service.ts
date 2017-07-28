@@ -1,35 +1,43 @@
 import { Http, Response } from '@angular/http';
+import { Injectable } from "@angular/core";
 import { Observable } from "rxjs/Observable";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/catch"
 import "rxjs/add/observable/throw";
 import { apiUrl } from '../../consts/api';
+import { HttpInterface } from "./http.interface";
 
 
 
-export abstract class HttpService {
-  protected http : Http;
-  private entityAlias : string;
+@Injectable()
 
+
+
+export class HttpService implements HttpInterface {
+
+  private alias : string;
   /**
    * @param {Http} http
-   * @param {string} entityAlias
    */
-  constructor(http : Http, entityAlias : string) {
-    this.http = http;
-    this.entityAlias = entityAlias;
-  };
+  constructor(private http : Http) {};
 
   /**
-   * @param {any} queryParam
+   * @param queryParam
    * @returns {Observable<any>}
    */
-  protected getApiQuery(queryParam : any = null) : Observable<any> {
-    return this.http.get(`${apiUrl}${this.entityAlias}${queryParam}`)
+  public getApiQuery(queryParam = null) : Observable<any> {
+    return this.http.get(`${this.alias}${queryParam}`)
       .map((response : Response) => {
         return response.json().data;
       }).catch((error : any) => {
           return Observable.throw(error);
       })
+  }
+
+  /**
+   * @param {string} alias
+   */
+  public setApiUrl(alias : string) : void {
+      this.alias = `${apiUrl}${alias}`;
   }
 }
