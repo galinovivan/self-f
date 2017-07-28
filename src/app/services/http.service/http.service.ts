@@ -35,6 +35,26 @@ export class HttpService implements HttpInterface {
   }
 
   /**
+   * @param {Object} data
+   * @param {any} queryParam
+   * @returns {boolean}
+   */
+  public postApiQuery(data : Object, queryParam = null) : boolean {
+    this.http.post(`${this.alias}${queryParam}`, data);
+    return true;
+  }
+
+
+  /**
+   * @param queryParam
+   * @returns {boolean}
+   */
+  deleteApiQuery(queryParam) : boolean {
+    this.http.delete(`${this.alias}${queryParam}`);
+    return true;
+  }
+
+  /**
    * @param {string} alias
    */
   public setApiUrl(alias : string) : void {

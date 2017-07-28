@@ -41,15 +41,15 @@ export class ProjectService implements CrudeInterface {
    * @returns {boolean}
    */
     public create(project : Project) : boolean {
-      return true;
+        return this.httpService.postApiQuery(project);
     };
 
   /**
-   *
+   * @param id
    * @returns {boolean}
    */
-  public update() : boolean {
-      return true;
+  public update(id) : boolean {
+      return this.httpService.postApiQuery(id);
     };
 
   /**
@@ -57,6 +57,6 @@ export class ProjectService implements CrudeInterface {
    * @returns {boolean}
    */
     public remove(id) : boolean {
-      return true;
+      return this.httpService.deleteApiQuery(id);
     };
 }
