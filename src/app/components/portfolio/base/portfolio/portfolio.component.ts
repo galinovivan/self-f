@@ -5,12 +5,13 @@ import { Project } from '../../../../models/project';
   selector: 'app-portfolio',
   templateUrl: './portfolio.component.html',
   styleUrls: ['./portfolio.component.scss'],
-  
+
 })
 export class PortfolioComponent implements OnInit {
+  @Input() projectList : Project[];
 
   constructor(private router : Router) { };
-  @Input() projectList : Project[];
+
 
   ngOnInit() {
   }
