@@ -25,13 +25,15 @@ export class HttpService implements HttpInterface {
    * @param queryParam
    * @returns {Observable<any>}
    */
-  public getApiQuery(queryParam = null) : Observable<any> {
+  public getApiQuery(queryParam = '') : Observable<any> {
+    console.log(`${this.alias}${queryParam}`);
     return this.http.get(`${this.alias}${queryParam}`)
       .map((response : Response) => {
-        return response.json().data;
+        return response.json();
       }).catch((error : any) => {
           return Observable.throw(error);
       })
+    
   }
 
   /**

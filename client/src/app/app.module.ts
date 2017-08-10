@@ -22,6 +22,7 @@ import { IcebergComponent } from './components/iceberg/iceberg.component';
 import { SeaComponent } from './components/sea/sea.component';
 import { NavComponent } from './components/nav/nav.component';
 
+import { HttpService } from './services/http.service/http.service';
 import { HaoticMovindDirective } from './directives/haotic-moving.directive';
 import { ContentLayoutComponent } from './components/layout/content-layout/content-layout.component';
 import { FrontendSkilsComponent } from './components/frontend-skils/frontend-skils.component';
@@ -45,7 +46,7 @@ const appRoutes: Routes = [
     component: FrontendPortfolioComponent
   },
   {
-    path: 'project/:id',
+    path: 'project/:name',
     component: ProjectSingleComponent
   },
   {
@@ -90,7 +91,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
