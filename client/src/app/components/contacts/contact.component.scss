@@ -1,19 +1,8 @@
 @import '../../sass/variable';
 @import '../../sass/mixins';
-a {
-    color: $blackText;
-    @include linkHover();
-}
 .contact {
     height: 100vh;
     padding-top: 50px;
-    .title {
-        h2 {
-           font-size: $largeHeadingSize;
-           text-transform: uppercase;
-           color: $blackText;
-        }
-    }
     .contact_item {
         font-size: $contactLabelFontSize;
         color: $blackText;

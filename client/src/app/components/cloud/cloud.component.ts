@@ -15,6 +15,4 @@ import { Component } from '@angular/core';
 
 
 export class CloudComponent {
-  linkLabel: string = 'about';
-  linkState: string = 'inactive';
 }

@@ -16,6 +16,8 @@ import { HttpInterface } from "./http.interface";
 export class HttpService implements HttpInterface {
 
   private alias : string;
+
+  private SEPARATE : string = '/';
   /**
    * @param {Http} http
    */
@@ -27,6 +29,7 @@ export class HttpService implements HttpInterface {
    */
   public getApiQuery(queryParam = '') : Observable<any> {
     console.log(`${this.alias}${queryParam}`);
+    queryParam = this.injectSeparate(queryParam);
     return this.http.get(`${this.alias}${queryParam}`)
       .map((response : Response) => {
         return response.json();
@@ -62,4 +65,10 @@ export class HttpService implements HttpInterface {
   public setApiUrl(alias : string) : void {
       this.alias = `${apiUrl}${alias}`;
   }
+  private injectSeparate(query: string): string {
+      if (query != null && query != '') {
+        query = this.SEPARATE + query;
+      }
+      return query; 
+  }  
 }

@@ -36,6 +36,8 @@ export class ProjectService implements CrudeInterface {
       return this.httpService.getApiQuery(id);
     };
 
+ 
+
   /**
    * @param {Project} project
    * @returns {boolean}

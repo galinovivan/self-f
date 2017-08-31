@@ -2,7 +2,7 @@
     <div class="block_heading">
       <a routerLink="/">
     <h4>Ivan Galinov</h4>
-    <h4>{{ title }}</h4>
+    <h4 *ngIf="title">{{ title }}</h4>
       </a>
     </div>
   <app-nav></app-nav>  

@@ -1,4 +1,19 @@
+@import 'fonts';
 @import 'variable';
 @import 'mixins';
+@import 'base';
 
+a {
+    color: $blackText;
+    @include linkHover();
+}
 
+h1, h2, h3, p {
+    color: $blackText;
+}
+.title {
+    h2 {
+        font-size: $largeHeadingSize;
+        text-transform: uppercase;
+    }
+}

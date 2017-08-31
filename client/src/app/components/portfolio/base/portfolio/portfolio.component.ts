@@ -16,7 +16,7 @@ export class PortfolioComponent implements OnInit {
   ngOnInit() {
   }
   onSelect(project : Project) {
-    this.router.navigate(['project', project.name]);
+    this.router.navigate(['project', project._id]);
   }
 
 }

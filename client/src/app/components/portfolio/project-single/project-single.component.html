@@ -1,3 +1,31 @@
+<app-content-layout [blockColor]="blockColor" [sidebarTitle]="'Case'">
 <div class="project">
-    this a project
+    <div class="container-fluid" *ngIf="project; else preloader">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="title">
+                    <h2>{{ project.name }}</h2>
+                </div>
+            </div>
+            <div class="source">
+                <a href="{{ project.source }}" target="_blank" rel="nofollow">
+                    {{ project.source }}
+                </a>
+            </div>
+            <div class="thumb">
+                <img src="{{project.imageSrc}}" />
+            </div>
+            <div class="desc">
+                <p>
+                    {{ project.description }}
+                </p>
+            </div>
+        </div>
+    </div>
+<ng-template #preloader>
+    load
+</ng-template>
 </div>
+
+</app-content-layout>
+

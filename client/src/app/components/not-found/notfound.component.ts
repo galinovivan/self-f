@@ -2,6 +2,7 @@
  * Created by ivan on 19.06.17.
  */
 import { Component } from '@angular/core';
+import { WHITE } from '../../consts/colors';
 
 
 
@@ -12,5 +13,6 @@ import { Component } from '@angular/core';
 
 
 export class NotFoundComponent {
+  blockColor = WHITE;
 }
 

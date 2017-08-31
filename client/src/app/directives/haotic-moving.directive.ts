@@ -32,11 +32,9 @@ export class HaoticMovindDirective implements AfterViewChecked {
     private moving() : void {
         let marginLeft : number = this.parseInteger(this.elementRef.nativeElement.style.marginLeft);
         let direction = this.activeDirection;
-        if (marginLeft >= 105) {
+        if (marginLeft >= 105 || marginLeft == 0) {
                this.changeDirection();
-           } else if (marginLeft == 0) {
-              this.changeDirection();
-           } 
+           }  
         switch (this.activeDirection) {
             case RIGHT:
                 this.setMarginLeft(marginLeft + 1);

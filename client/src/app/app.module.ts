@@ -46,7 +46,7 @@ const appRoutes: Routes = [
     component: FrontendPortfolioComponent
   },
   {
-    path: 'project/:name',
+    path: 'project/:_id',
     component: ProjectSingleComponent
   },
   {
@@ -82,14 +82,14 @@ const appRoutes: Routes = [
     FrontendPortfolioComponent,
     PortfolioComponent,
     ContactComponent,
-    SocialLinksComponent
-],
+    SocialLinksComponent,
+  ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [HttpService],
   bootstrap: [AppComponent]
